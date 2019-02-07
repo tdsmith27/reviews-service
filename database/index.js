@@ -21,3 +21,4 @@ const save = (doc, cb) => {
 };
 
 module.exports.save = save;
+module.exports.Review = Review;
