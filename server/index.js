@@ -15,10 +15,10 @@ app.post('/products/reviews', (req, res) => {
     if (err) console.log('we got an error', err)
     else {
       console.log('yo this may have done just worked')
+      res.sendStatus(201);
     }
   })
   
-  res.sendStatus(201);
 }) 
 
 
