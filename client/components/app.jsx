@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>this is the App</h2>
-        <ReviewsSummary/>
+        <ReviewsSummary reviews={this.state.reviews}/>
       </div>
     )
   }

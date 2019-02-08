@@ -1,8 +1,8 @@
-{
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
+ {
+  "name": "the-home-repot-reviews",
+  "version": "1.0.0",
+  "description": "This is the reviews subservice for The Home Repot app",
+  "author": "Trevor Smith <smittrevor@gmail.com>",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
