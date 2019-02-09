@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewForm from './ReviewForm.jsx';
 
 class WriteReview extends React.Component {
   constructor(props) {
@@ -7,16 +8,16 @@ class WriteReview extends React.Component {
     this.onClick = this.onClick.bind(this);
 
     this.state = {
-      writing: false
+      viewForm: false
     };
   }
 
   onClick() {
-    this.setState({writing: !this.state.writing})
+    this.setState({viewForm: !this.state.viewForm})
   }
 
   render() {
-    return !this.state.writing ? <div className="placeholder" style={temp}><button onClick={this.onClick} style={writeReview}>Write a Review</button></div> : <div>now writing review</div>
+    return !this.state.viewForm ? <div className="placeholder" style={temp}><button onClick={this.onClick} style={writeReview}>Write a Review</button></div> : <ReviewForm click={this.onClick} product={this.props.product} update={this.props.update}/>
   }
 }
 
@@ -32,6 +33,7 @@ const writeReview = {
 
 const temp = {
   width: '30%',
+  height: '150px',
   display: 'inline-block',
   marginLeft: '19%',
   marginTop: '10px',

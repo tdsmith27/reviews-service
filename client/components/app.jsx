@@ -9,17 +9,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+
+    this.updateReviews = this.updateReviews.bind(this);
+
     this.state = {
       product_id: 27,
       reviews: []
     };
   }
 
-  componentDidMount() {
+  updateReviews() {
     let url = `/products/${this.state.product_id}/reviews`;
     axios.get(url)
       .then(response => this.setState({reviews: response.data}))
       .catch(err => console.log('error componentDidMount get request', err));
+  }
+
+  componentDidMount() {
+    this.updateReviews();
   };
 
 
@@ -29,7 +36,7 @@ class App extends React.Component {
         <p style={head}>Customer Reviews</p>
         <div className="wrapper" style={wrap}>
           <ReviewsSummary reviews={this.state.reviews}/>
-          <WriteReview />
+          <WriteReview product={this.state.product_id} update={this.updateReviews}/>
         </div>
         <ReviewList reviews={this.state.reviews}/>
       </div>
