@@ -1,6 +1,7 @@
 import React from 'react';
-import ReviewsSummary from './ReviewsSummary.jsx';
 import axios from 'axios';
+import ReviewsSummary from './ReviewsSummary.jsx';
+import ReviewList from './ReviewList.jsx';
 
 const tempStyle = {
   width: '30%',
@@ -20,9 +21,15 @@ const wrapStyle = {
 }
 
 const headStyle = {
+  fontFamily: 'helvetica-neue-light',
+  marginBottom: '0px',
   marginLeft: '5%',
   borderBottom: '4px solid #f96302',
   width: '200px'
+}
+
+const writeReviewStyle = {
+  color: '#f96302'
 }
 
 class App extends React.Component {
@@ -30,7 +37,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      product_id: 5,
+      product_id: 27,
       reviews: []
     };
   }
@@ -49,8 +56,9 @@ class App extends React.Component {
         <h2 style={headStyle}>Customer Reviews</h2>
         <div className="wrapper" style={wrapStyle}>
         <ReviewsSummary reviews={this.state.reviews}/>
-        <div className="placeholder" style={tempStyle}><p>placeholder</p></div>
+        <div className="placeholder" style={tempStyle}><h3 style={writeReviewStyle}>Write a Review</h3></div>
         </div>
+        <ReviewList reviews={this.state.reviews}/>
       </div>
     )
   }
