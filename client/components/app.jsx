@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReviewsSummary from './ReviewsSummary.jsx';
 import ReviewList from './ReviewList.jsx';
+import WriteReview from './WriteReview.jsx';
 
 
 class App extends React.Component {
@@ -25,10 +26,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2 style={head}>Customer Reviews</h2>
+        <p style={head}>Customer Reviews</p>
         <div className="wrapper" style={wrap}>
-        <ReviewsSummary reviews={this.state.reviews}/>
-        <div className="placeholder" style={temp}><button style={writeReview}>Write a Review</button></div>
+          <ReviewsSummary reviews={this.state.reviews}/>
+          <WriteReview />
         </div>
         <ReviewList reviews={this.state.reviews}/>
       </div>
@@ -38,15 +39,6 @@ class App extends React.Component {
 
 
 // STYLES //
-const temp = {
-  width: '30%',
-  display: 'inline-block',
-  marginLeft: '19%',
-  marginTop: '10px',
-  marginBottom: '10px',
-  float: 'left'
-}
-
 const wrap = {
   height: '150px',
   width: '90%',
@@ -56,21 +48,13 @@ const wrap = {
 }
 
 const head = {
-  fontFamily: 'helvetica-neue-light',
+  fontFamily: 'Helvetica',
+  fontWeight: '300',
+  fontSize: '27px',
   marginBottom: '0px',
   marginLeft: '5%',
   borderBottom: '4px solid #f96302',
-  width: '200px'
+  width: '227px'
 }
-
-const writeReview = {
-  background: '#f96302',
-  color: 'white',
-  fontSize: '20px',
-  width: '205px',
-  height: '40px',
-  marginTop: '10px'
-}
-
 
 export default App;
