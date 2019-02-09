@@ -68,7 +68,8 @@ const writeReview = {
   color: 'white',
   fontSize: '20px',
   width: '205px',
-  height: '40px'
+  height: '40px',
+  marginTop: '10px'
 }
 
 
