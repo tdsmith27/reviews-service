@@ -20,5 +20,11 @@ const save = (doc, cb) => {
     .catch(err => cb(err));
 };
 
+const findById = (id, cb) => {
+  const query = Review.find({'product_id': id});
+  query.exec().then(response => cb(null, response)).catch(err => cb(err));
+}
+
 module.exports.save = save;
 module.exports.Review = Review;
+module.exports.findById = findById;
