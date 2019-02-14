@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'tutorial-2',
+    name: 'reviews-service',
     script: './server/index.js'
   }],
   deploy: {
