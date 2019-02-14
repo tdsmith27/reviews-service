@@ -11,7 +11,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'https://github.com/the-home-repot/reviews-service.git',
       path: '/home/ubuntu/reviews-service',
-      'post-deploy': 'npm install && npm run react-dev && pm2 startOrRestart ecosystem.config.js'
+      'post-deploy': 'npm install && npm run react-deploy && pm2 startOrRestart ecosystem.config.js'
     }
   }
 }

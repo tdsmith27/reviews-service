@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
+    "react-deploy": "webpack -d",
     "react-dev": "webpack -d --watch",
     "seed-reviews": "node lib/seed.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
