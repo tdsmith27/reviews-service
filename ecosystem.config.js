@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'ec2-3-16-158-247.us-east-2.compute.amazonaws.com',
+      host: 'ec2-18-219-57-139.us-east-2.compute.amazonaws.com',
       key: '~/.ssh/reviews-service.pem',
       ref: 'origin/master',
       repo: 'https://github.com/the-home-repot/reviews-service.git',
