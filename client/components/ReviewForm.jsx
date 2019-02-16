@@ -7,6 +7,7 @@ class ReviewForm extends React.Component {
 
     this.onChange = this.onChange.bind(this);
     this.post = this.post.bind(this);
+    this.checkValid = this.checkValid.bind(this);
 
     this.state = {
       author: '',
@@ -24,8 +25,18 @@ class ReviewForm extends React.Component {
     if (key === 'rating')this.setState({rating: value});
   }
 
-  post(e) {
+  checkValid(e) {
     e.preventDefault();
+    let valid = true;
+
+    if (this.state.author === '' || this.state.review === '' || this.state.rating === '') valid = false;
+
+    if (valid) this.post(e);
+    else console.log('not valid');
+  }
+
+  post() {
+    console.log('musta been valid')
     let review = {
       author: this.state.author,
       date: new Date(),
@@ -57,7 +68,7 @@ class ReviewForm extends React.Component {
         <textarea placeholder="Review this product!" onChange={this.onChange} name="review" style={textBox}></textarea>
         <br></br>
   
-        <button onClick={this.post}>Submit Review</button>
+        <button onClick={this.checkValid}>Submit Review</button><button onClick={this.props.click}>Nevermind!</button>
   
       </form>
     )
