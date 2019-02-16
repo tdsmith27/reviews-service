@@ -6,7 +6,7 @@ class ReviewForm extends React.Component {
     super(props);
 
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.post = this.post.bind(this);
 
     this.state = {
       author: '',
@@ -24,9 +24,8 @@ class ReviewForm extends React.Component {
     if (key === 'rating')this.setState({rating: value});
   }
 
-  onSubmit(e) {
+  post(e) {
     e.preventDefault();
-    console.log('submitting')
     let review = {
       author: this.state.author,
       date: new Date(),
@@ -34,24 +33,31 @@ class ReviewForm extends React.Component {
       rating: this.state.rating,
       review: this.state.review
     }
-    console.log(review);
 
     axios.post('/products/reviews', review)
       .then(res => {
         this.props.update();
         this.props.click();
       })
-      .catch(err => console.log('damn'));
+      .catch(err => console.log('error posting review'));
   }
 
   render() {
+    const ratings = [1,2,3,4,5]
     return (
       <form>
-        <input type="text" placeholder="name" onChange={this.onChange} name="author"/><br></br>
-        <input type="text" placeholder="Rating (out of 5)" onChange={this.onChange} name="rating"/><br></br>
-        <textarea placeholder="Review this product!" onChange={this.onChange} name="review"></textarea><br></br>
+
+        <input type="text" placeholder="name" onChange={this.onChange} name="author"/>
+        <br></br>
+
+        <label>Rating: </label>
+        {ratings.map(rating => <span> <label for={`${rating}`}>{rating}</label> <input type="radio" name="rating" value={rating} onChange={this.onChange}/> </span>)}
+        <br></br>
+
+        <textarea placeholder="Review this product!" onChange={this.onChange} name="review"></textarea>
+        <br></br>
   
-        <button onClick={this.onSubmit}>Submit Review</button>
+        <button onClick={this.post}>Submit Review</button>
   
       </form>
     )

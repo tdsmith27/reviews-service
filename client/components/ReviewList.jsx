@@ -29,6 +29,4 @@ class ReviewList extends React.Component {
 
 }
 
-
-
 export default ReviewList;
