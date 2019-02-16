@@ -1,4 +1,5 @@
 import React from 'react';
+const {average} = require('../helpers.js');
 
 const boxStyle = {
   borderRight: '1px solid #cccccc',
@@ -20,10 +21,5 @@ const ReviewsSummary = ({reviews}) => {
     </div>
   )
 }
-
-const average = (reviews) => {
-  return (reviews.reduce((sum, review) => sum + review.rating, 0)) / reviews.length;
-};
-
 
 export default ReviewsSummary;
