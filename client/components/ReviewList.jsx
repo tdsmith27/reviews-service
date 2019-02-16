@@ -15,11 +15,12 @@ class ReviewList extends React.Component {
   }
 
   render() {
+    const reviews = this.props.reviews.reverse();
     return (
     <div>
-    {this.state.showAll ? this.props.reviews.map((review, key) => {
+    {this.state.showAll ? reviews.map((review, key) => {
       return <ReviewListEntry review={review} key={key}/>
-    }) : this.props.reviews.slice(0, 5).map((review, key) => {
+    }) : reviews.slice(0, 5).map((review, key) => {
       return <ReviewListEntry review={review} key={key}/>
     })}
     <button onClick={() => this.onClick(this.state.showAll)}>{this.state.showAll ? 'Show fewer reviews' : 'Show All Reviews'}</button>
