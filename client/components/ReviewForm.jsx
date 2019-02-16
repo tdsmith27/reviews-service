@@ -51,10 +51,10 @@ class ReviewForm extends React.Component {
         <br></br>
 
         <label>Rating: </label>
-        {ratings.map(rating => <span> <label for={`${rating}`}>{rating}</label> <input type="radio" name="rating" value={rating} onChange={this.onChange}/> </span>)}
+        {ratings.map((rating, key) => <span key={key}> <label>{rating}</label> <input type="radio" name="rating" value={rating} onChange={this.onChange}/> </span>)}
         <br></br>
 
-        <textarea placeholder="Review this product!" onChange={this.onChange} name="review"></textarea>
+        <textarea placeholder="Review this product!" onChange={this.onChange} name="review" style={textBox}></textarea>
         <br></br>
   
         <button onClick={this.post}>Submit Review</button>
@@ -62,6 +62,12 @@ class ReviewForm extends React.Component {
       </form>
     )
   }
+}
+
+const textBox = {
+  resize: 'none',
+  height: '75px',
+  width: '300px'
 }
 
 export default ReviewForm;
