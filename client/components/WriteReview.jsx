@@ -1,5 +1,5 @@
-import React from 'react';
-import ReviewForm from './ReviewForm.jsx';
+import React from "react";
+import ReviewForm from "./ReviewForm.jsx";
 
 class WriteReview extends React.Component {
   constructor(props) {
@@ -13,31 +13,42 @@ class WriteReview extends React.Component {
   }
 
   onClick() {
-    this.setState({viewForm: !this.state.viewForm})
+    this.setState({ viewForm: !this.state.viewForm });
   }
 
   render() {
-    return !this.state.viewForm ? <div className="placeholder" style={temp}><button onClick={this.onClick} style={writeReview}>Write a Review</button></div> : <ReviewForm click={this.onClick} product={this.props.product} update={this.props.update}/>
+    return (
+      <div className="reviewBox" style={reviewBox}>
+        {!this.state.viewForm ? (
+          <button onClick={this.onClick} style={reviewButton}>
+            Write a Review
+          </button>
+        ) : (
+          <ReviewForm
+            click={this.onClick}
+            product={this.props.product}
+            update={this.props.update}
+          />
+        )}
+      </div>
+    );
   }
 }
 
-const writeReview = {
-  background: '#f96302',
-  color: 'white',
-  fontSize: '20px',
-  width: '205px',
-  height: '40px',
-  marginTop: '10px'
-}
+const reviewButton = {
+  background: "#f96302",
+  color: "white",
+  fontSize: "20px",
+  width: "205px",
+  height: "40px"
+};
 
-const temp = {
-  width: '30%',
-  height: '150px',
-  display: 'inline-block',
-  marginLeft: '19%',
-  marginTop: '10px',
-  marginBottom: '10px',
-  float: 'left'
-}
+const reviewBox = {
+  display: "flex",
+  flexGrow: "1",
+  flexBasis: "0",
+  justifyContent: "center",
+  alignItems: "center"
+};
 
 export default WriteReview;
