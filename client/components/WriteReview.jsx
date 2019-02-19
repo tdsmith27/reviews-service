@@ -17,18 +17,30 @@ class WriteReview extends React.Component {
   }
 
   render() {
-    return !this.state.viewForm ? <div className="placeholder" style={temp}><button onClick={this.onClick} style={writeReview}>Write a Review</button></div> : <ReviewForm click={this.onClick} product={this.props.product} update={this.props.update}/>
+    return (
+      <div className="reviewBox" style={reviewBox}>
+        {!this.state.viewForm ? <button onClick={this.onClick} style={reviewButton}>Write a Review</button> : <ReviewForm click={this.onClick} product={this.props.product} update={this.props.update}/> }
+      </div>
+    )
   }
 }
 
-const writeReview = {
+const reviewButton = {
   background: '#f96302',
   color: 'white',
   fontSize: '20px',
   width: '205px',
-  height: '40px',
-  marginTop: '10px'
+  height: '40px'
 }
+
+const reviewBox = {
+  display: 'flex',
+  flexGrow: '1',
+  flexBasis: '0',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 
 const temp = {
   width: '30%',

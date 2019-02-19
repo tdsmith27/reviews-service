@@ -56,29 +56,39 @@ class ReviewForm extends React.Component {
   render() {
     const ratings = [1,2,3,4,5]
     return (
-      <form>
+      <form style={formStyle}>
 
         <input type="text" placeholder="name" onChange={this.onChange} name="author"/>
-        <br></br>
 
         <label>Rating: </label>
+        <div className="radioSelectors">
         {ratings.map((rating, key) => <span key={key}> <label>{rating}</label> <input type="radio" name="rating" value={rating} onChange={this.onChange}/> </span>)}
-        <br></br>
+        </div>
 
         <textarea placeholder="Review this product!" onChange={this.onChange} name="review" style={textBox}></textarea>
-        <br></br>
   
-        <button onClick={this.checkValid}>Submit Review</button><button onClick={this.props.click}>Nevermind!</button>
+        <button onClick={this.checkValid} style={leftFlex}>Submit Review</button>
+        <button onClick={this.props.click} style={leftFlex}>Nevermind!</button>
   
       </form>
     )
   }
 }
 
+const formStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+}
+
+const leftFlex = {
+  alignSelf: 'flex-start'
+}
+
 const textBox = {
   resize: 'none',
   height: '75px',
-  width: '300px'
+  width: '500px'
 }
 
 export default ReviewForm;

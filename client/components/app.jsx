@@ -46,12 +46,21 @@ class App extends React.Component {
 
 
 // STYLES //
+// const wrap = {
+//   height: '150px',
+//   width: '90%',
+//   marginLeft: '5%',
+//   borderTop: '1px solid #cccccc',
+//   borderBottom: '1px solid #cccccc',
+// }
+
 const wrap = {
-  height: '150px',
-  width: '90%',
+  display: 'flex',
+  justifyContent: 'space-evenly',
   marginLeft: '5%',
-  borderTop: '1px solid #cccccc',
-  borderBottom: '1px solid #cccccc',
+  width: '90%',
+  height: '200px',
+  borderTop: '1px solid #cccccc'
 }
 
 const head = {
