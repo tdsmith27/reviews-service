@@ -9,9 +9,9 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "react-deploy": "webpack -d",
+    "react-deploy": "webpack --mode production",
     "build": "webpack -d && node server/index.js",
-    "react-dev": "webpack -d --watch",
+    "react-dev": "webpack -d --progress --w",
     "seed-reviews": "node lib/seed.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
     "restart": "pm2 startOrRestart ecosystem.config.js",
