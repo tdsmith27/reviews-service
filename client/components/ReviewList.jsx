@@ -1,5 +1,6 @@
 import React from "react";
 import ReviewListEntry from "./ReviewListEntry.jsx";
+const { sortByDate } = require("../helpers.js");
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class ReviewList extends React.Component {
   }
 
   render() {
-    const reviews = this.props.reviews.reverse();
+    const reviews = sortByDate(this.props.reviews);
     return (
       <div>
         {this.state.showAll

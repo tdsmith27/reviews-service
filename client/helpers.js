@@ -26,5 +26,8 @@ module.exports = {
     ];
 
     return `${months[parseInt(month) - 1]} ${day}, ${year}`;
-  }
+  },
+
+  sortByDate: reviews =>
+    reviews.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
 };
