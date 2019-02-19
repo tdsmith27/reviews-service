@@ -1,12 +1,12 @@
 const express = require('express');
 const parser = require('body-parser');
-const path = require('path');
+const {join} = require('path');
 const app = express();
 const port = process.env.PORT || 3030;
 
-const db = require(path.join(__dirname, '../database/index.js'));
+const db = require(join(__dirname, '../database/index.js'));
 
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(join(__dirname, '../public')))
 app.use(parser.json());
 
 

@@ -21,10 +21,9 @@ class WriteReview extends React.Component {
   }
 }
 
-
 const writeReview = {
   background: '#f96302',
-  color: 'black',
+  color: 'white',
   fontSize: '20px',
   width: '205px',
   height: '40px',
