@@ -1,9 +1,10 @@
 import React from "react";
+const { formatDate } = require("../helpers.js");
 
 const ReviewListEntry = ({ review }) => (
   <div style={wrap}>
     <p>
-      {review.author}, {review.date} -- {review.rating}
+      {review.author} -- {formatDate(review.date)} -- {review.rating}
     </p>
     <p>{review.review}</p>
   </div>
