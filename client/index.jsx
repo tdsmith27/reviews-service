@@ -1,6 +1,5 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import App from './components/app.jsx';
+import ReactDOM from "react-dom";
+import React from "react";
+import Reviews from "./components/app.jsx";
 
-
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<Reviews />, document.getElementById("Reviews"));

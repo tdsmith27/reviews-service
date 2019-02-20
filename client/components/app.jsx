@@ -4,7 +4,11 @@ import ReviewsSummary from "./ReviewsSummary.jsx";
 import ReviewList from "./ReviewList.jsx";
 import WriteReview from "./WriteReview.jsx";
 
-class App extends React.Component {
+const Axios = axios.create({
+  baseURL: "http://localhost:3030"
+});
+
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,8 +22,7 @@ class App extends React.Component {
 
   updateReviews() {
     let url = `/products/${this.state.product_id}/reviews`;
-    axios
-      .get(url)
+    Axios.get(url)
       .then(response => this.setState({ reviews: response.data }))
       .catch(err => console.log("error componentDidMount get request", err));
   }
@@ -66,4 +69,4 @@ const head = {
   width: "227px"
 };
 
-export default App;
+export default Reviews;
