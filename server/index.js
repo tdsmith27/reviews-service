@@ -9,11 +9,7 @@ const db = require(join(__dirname, "../database/index.js"));
 
 app.use(express.static(join(__dirname, "../public")));
 app.use(parser.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000"
-  })
-);
+app.use(cors());
 
 app.get("/products/:id/reviews", (req, res) => {
   let id = req.params.id;
