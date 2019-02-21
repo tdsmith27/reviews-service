@@ -1,6 +1,13 @@
 import React from "react";
 import axios from "axios";
 
+const deploy = `http://ec2-13-58-187-52.us-east-2.compute.amazonaws.com:3030/`;
+const local = "http://localhost:3030";
+
+const Axios = axios.create({
+  baseURL: deploy || local
+});
+
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
@@ -50,8 +57,7 @@ class ReviewForm extends React.Component {
       review: this.state.review
     };
 
-    axios
-      .post("/products/reviews", review)
+    Axios.post("/products/reviews", review)
       .then(res => {
         this.props.update();
         this.props.click();

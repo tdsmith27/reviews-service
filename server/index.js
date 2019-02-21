@@ -25,6 +25,7 @@ app.get("/products/:id/reviews", (req, res) => {
 });
 
 app.post("/products/reviews", (req, res) => {
+  console.log("req.body on post ->", req.body);
   db.save(req.body, (err, data) => {
     if (err) console.log("we got an error", err);
     else {
