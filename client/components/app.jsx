@@ -29,11 +29,14 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
+    window.addEventListener("updateProduct", event => {
+      this.setState({ product_id: event.detail });
+    });
     this.updateReviews();
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.product_id !== prevProps.product_id) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.product_id !== prevState.product_id) {
       this.updateReviews();
     }
   }
