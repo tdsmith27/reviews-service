@@ -6,6 +6,7 @@ mongoose.connect(
 const reviewSchema = mongoose.Schema({
   review_id: "number",
   product_id: "number",
+  product_name: "string",
   author: "string",
   date: "string",
   rating: "number",

@@ -15,7 +15,6 @@ class Reviews extends React.Component {
     this.updateReviews = this.updateReviews.bind(this);
 
     this.state = {
-      product_id: 27,
       reviews: []
     };
   }
@@ -32,10 +31,22 @@ class Reviews extends React.Component {
     this.updateReviews();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.product_id !== prevProps.product_id) {
+      this.updateReviews();
+    }
+  }
+
   render() {
+    console.log(this.state.reviews);
     return (
       <div>
-        <p style={head}>Customer Reviews</p>
+        <p style={head1}>Reviews</p>
+        <p style={head}>
+          {this.state.reviews.length
+            ? this.state.reviews[0].product_name
+            : null}
+        </p>
         <div className="wrapper" style={wrap}>
           <ReviewsSummary reviews={this.state.reviews} />
           <WriteReview
@@ -61,13 +72,23 @@ const wrap = {
 };
 
 const head = {
-  fontFamily: "Helvetica",
+  fontFamily: "helvetica-neue-light, 'Helvetica Neue', Helvetica",
   fontWeight: "300",
   fontSize: "27px",
   marginBottom: "0px",
   marginLeft: "5%",
+  marginTop: "0px",
   borderBottom: "4px solid #f96302",
-  width: "227px"
+  width: "300px"
+};
+
+const head1 = {
+  fontFamily: "helvetica-neue-light, 'Helvetica Neue', Helvetica",
+  fontSize: "32px",
+  fontWeight: "300",
+  marginBottom: "0px",
+  marginLeft: "5%",
+  width: "300px"
 };
 
 export default Reviews;
