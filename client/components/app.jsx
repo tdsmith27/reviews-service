@@ -15,12 +15,13 @@ class Reviews extends React.Component {
     this.updateReviews = this.updateReviews.bind(this);
 
     this.state = {
+      product_id: 27,
       reviews: []
     };
   }
 
   updateReviews() {
-    let url = `/products/${this.props.product_id}/reviews`;
+    let url = `/products/${this.state.product_id}/reviews`;
     axios
       .get(url)
       .then(response => this.setState({ reviews: response.data }))
@@ -38,7 +39,6 @@ class Reviews extends React.Component {
   }
 
   render() {
-    console.log(this.state.reviews);
     return (
       <div>
         <p style={head1}>Reviews</p>
@@ -50,7 +50,7 @@ class Reviews extends React.Component {
         <div className="wrapper" style={wrap}>
           <ReviewsSummary reviews={this.state.reviews} />
           <WriteReview
-            product={this.props.product_id}
+            product={this.state.product_id}
             update={this.updateReviews}
           />
         </div>
