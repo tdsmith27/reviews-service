@@ -8,8 +8,10 @@ module.exports = {
   deploy: {
     production: {
       user: "ubuntu",
-      host: "ec2-13-58-187-52.us-east-2.compute.amazonaws.com",
-      key: "~/.ssh/reviews-service.pem",
+      // host: "ec2-13-58-187-52.us-east-2.compute.amazonaws.com",  <--- service instance
+      host: "ec2-3-16-214-81.us-east-2.compute.amazonaws.com",
+      // key: "~/.ssh/reviews-service.pem",   <--- service key
+      key: "~/.ssh/FEC-proxy.pem",
       ref: "origin/master",
       repo: "https://github.com/the-home-repot/reviews-service.git",
       path: "/home/ubuntu/reviews-service",
