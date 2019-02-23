@@ -1,4 +1,5 @@
 import React from "react";
+import StarRating from "react-star-rating-component";
 const { average } = require("../helpers.js");
 
 const ReviewsSummary = ({ reviews }) => (
@@ -9,6 +10,12 @@ const ReviewsSummary = ({ reviews }) => (
       </div>
       <div style={maxRating}>out of 5</div>
     </div>
+    <StarRating
+      name="rating"
+      value={Math.round(average(reviews))}
+      starColor={"#f96302"}
+      emptyStarColor={"#cccccc"}
+    />
     <p>{reviews.length} reviews</p>
   </div>
 );
