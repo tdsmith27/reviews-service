@@ -46,7 +46,7 @@ class ReviewForm extends React.Component {
     if (
       this.state.author === "" ||
       this.state.review === "" ||
-      this.state.rating === ""
+      this.state.rating === 0
     )
       valid = false;
 

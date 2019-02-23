@@ -25,7 +25,7 @@ const summaryBox = {
   flexGrow: "1",
   flexBasis: "0",
   flexDirection: "column",
-  justifyContent: "center",
+  justifyContent: "space-evenly",
   alignItems: "center",
   borderRight: "1px solid #cccccc",
   color: "#f96302"
