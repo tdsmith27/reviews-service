@@ -3,18 +3,18 @@ const { formatDate } = require("../helpers.js");
 
 const ReviewListEntry = ({ review }) => (
   <div className="outerWrap" style={outerWrap}>
-    <div style={author}>{review.author}</div>
+    <div style={author}>{review.author} </div>
     <div className="innerWrap" style={innerWrap}>
       <div className="deepWrap" style={deepWrap}>
         <div className="ratingBox">
           <div style={rating}>
-            <p style={ratingText}>{review.rating.toFixed(1)}</p>
+            <p style={ratingText}>{review.rating.toFixed(1)} </p>
           </div>
           <div style={maxRating}>out of 5</div>
         </div>
-        <div style={date}>{formatDate(review.date)}</div>
+        <div style={date}>{formatDate(review.date)} </div>
       </div>
-      <div>{review.review}</div>
+      <div style={reviewText}>{review.review}</div>
     </div>
   </div>
 );
@@ -22,10 +22,11 @@ const ReviewListEntry = ({ review }) => (
 const outerWrap = {
   display: "flex",
   justifyContent: "flex-start",
-  height: "150px",
   width: "90%",
   marginLeft: "5%",
-  borderTop: "1px solid #cccccc"
+  borderTop: "1px solid #cccccc",
+  paddingTop: "5px",
+  paddingBottom: "2px"
 };
 
 const innerWrap = {
@@ -41,9 +42,9 @@ const deepWrap = {
 };
 
 const author = {
-  fontSize: "20px",
-  fontWeight: "bold",
-  flex: ".15"
+  fontSize: "16px",
+  flex: ".15",
+  fontWeight: "bold"
 };
 
 const rating = {
@@ -56,6 +57,7 @@ const rating = {
 };
 
 const ratingText = {
+  fontFamily: "helvetica-neue-bold",
   fontSize: "36px",
   color: "#f96302",
   fontWeight: "bold"
@@ -77,6 +79,9 @@ const date = {
   fontWeight: "bold"
 };
 
-const reviewText = {};
+const reviewText = {
+  marginTop: "10px",
+  marginBottom: "10px"
+};
 
 export default ReviewListEntry;

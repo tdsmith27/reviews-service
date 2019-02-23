@@ -34,6 +34,7 @@ const rating = {
 };
 
 const ratingText = {
+  fontFamily: "helvetica-neue-bold",
   fontSize: "40px",
   color: "#f96302",
   fontWeight: "bold"

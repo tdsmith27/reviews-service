@@ -64,7 +64,6 @@ class Reviews extends React.Component {
     );
   }
 }
-
 // STYLES //
 
 const wrap = {

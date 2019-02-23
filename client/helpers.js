@@ -28,6 +28,22 @@ module.exports = {
     return `${months[parseInt(month) - 1]} ${day}, ${year}`;
   },
 
-  sortByDate: reviews =>
-    reviews.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+  sortBy: (reviews, sortBy) => {
+    if (sortBy === "dateDesc")
+      return reviews.sort((a, b) =>
+        a.date > b.date ? -1 : a.date < b.date ? 1 : 0
+      );
+    if (sortBy === "dateAsc")
+      return reviews.sort((a, b) =>
+        a.date > b.date ? 1 : a.date < b.date ? -1 : 0
+      );
+    if (sortBy === "rateDesc")
+      return reviews.sort((a, b) =>
+        a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0
+      );
+    if (sortBy === "rateAsc")
+      return reviews.sort((a, b) =>
+        a.rating > b.rating ? 1 : a.rating < b.rating ? -1 : 0
+      );
+  }
 };

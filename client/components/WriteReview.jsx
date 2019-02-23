@@ -40,7 +40,8 @@ const reviewButton = {
   color: "white",
   fontSize: "20px",
   width: "205px",
-  height: "40px"
+  height: "40px",
+  cursor: "pointer"
 };
 
 const reviewBox = {
