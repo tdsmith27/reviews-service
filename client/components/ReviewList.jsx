@@ -90,8 +90,8 @@ const select = {
   backgroundColor: "#fefefe",
   border: "3px solid #e2e2e2",
   borderRadius: "0px",
-  webkitAppearance: "none",
-  webkitBorderRadius: "0px"
+  WebkitAppearance: "none",
+  WebkitBorderRadius: "0px"
 };
 
 const button = {

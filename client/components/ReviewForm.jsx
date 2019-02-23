@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import StarRating from "react-star-rating-component";
 
 const deploy = `http://ec2-13-58-187-52.us-east-2.compute.amazonaws.com:3030/`;
 const local = "http://localhost:3030";
@@ -12,6 +13,7 @@ class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onStarHover = this.onStarHover.bind(this);
     this.onChange = this.onChange.bind(this);
     this.post = this.post.bind(this);
     this.checkValid = this.checkValid.bind(this);
@@ -19,8 +21,13 @@ class ReviewForm extends React.Component {
     this.state = {
       author: "",
       review: "",
-      rating: ""
+      rating: 0,
+      tempRating: 0
     };
+  }
+
+  onStarHover(nextValue, prevValue, name) {
+    this.setState({ rating: nextValue });
   }
 
   onChange(e) {
@@ -66,7 +73,6 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const ratings = [1, 2, 3, 4, 5];
     return (
       <form style={formStyle}>
         <input
@@ -76,21 +82,13 @@ class ReviewForm extends React.Component {
           name="author"
         />
 
-        <label>Rating: </label>
-        <div className="radioSelectors">
-          {ratings.map((rating, key) => (
-            <span key={key}>
-              {" "}
-              <label>{rating}</label>{" "}
-              <input
-                type="radio"
-                name="rating"
-                value={rating}
-                onChange={this.onChange}
-              />{" "}
-            </span>
-          ))}
-        </div>
+        <StarRating
+          name="rating"
+          value={this.state.rating}
+          onStarHover={this.onStarHover}
+          starColor={"#f96302"}
+          emptyStarColor={"#cccccc"}
+        />
 
         <textarea
           placeholder="Review this product!"
@@ -99,12 +97,8 @@ class ReviewForm extends React.Component {
           style={textBox}
         />
 
-        <button onClick={this.checkValid} style={leftFlex}>
-          Submit Review
-        </button>
-        <button onClick={this.props.click} style={leftFlex}>
-          Nevermind!
-        </button>
+        <button onClick={this.checkValid}>Submit Review</button>
+        <button onClick={this.props.click}>Nevermind!</button>
       </form>
     );
   }
@@ -113,11 +107,8 @@ class ReviewForm extends React.Component {
 const formStyle = {
   display: "flex",
   flexDirection: "column",
+  alignItems: "flex-start",
   justifyContent: "center"
-};
-
-const leftFlex = {
-  alignSelf: "flex-start"
 };
 
 const textBox = {

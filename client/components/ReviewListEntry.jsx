@@ -44,6 +44,8 @@ const deepWrap = {
 const author = {
   fontSize: "16px",
   flex: ".15",
+  fontFamily:
+    "HelveticaNeue-Light, helvetica-neue-light, Helvetica Neue, Helvetica, Arial, sans-serif",
   fontWeight: "bold"
 };
 
@@ -81,7 +83,9 @@ const date = {
 
 const reviewText = {
   marginTop: "10px",
-  marginBottom: "10px"
+  marginBottom: "10px",
+  fontFamily:
+    "HelveticaNeue-Light, helvetica-neue-light, Helvetica Neue, Helvetica, Arial, sans-serif"
 };
 
 export default ReviewListEntry;
