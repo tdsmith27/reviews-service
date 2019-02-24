@@ -3,6 +3,7 @@ import axios from "axios";
 import ReviewsSummary from "./ReviewsSummary.jsx";
 import ReviewList from "./ReviewList.jsx";
 import WriteReview from "./WriteReview.jsx";
+import RatingsBreakdown from "./RatingsBreakdown.jsx";
 
 const deploy = `http://ec2-13-58-187-52.us-east-2.compute.amazonaws.com:3030/`;
 const local = "http://localhost:3030";
@@ -71,7 +72,7 @@ const wrap = {
   justifyContent: "space-evenly",
   marginLeft: "5%",
   width: "90%",
-  height: "200px",
+  height: "300px",
   borderTop: "1px solid #cccccc"
 };
 

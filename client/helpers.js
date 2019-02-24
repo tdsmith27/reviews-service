@@ -45,5 +45,23 @@ module.exports = {
       return reviews.sort((a, b) =>
         a.rating > b.rating ? 1 : a.rating < b.rating ? -1 : 0
       );
+  },
+
+  breakdown: reviews => {
+    const data = [];
+    const storage = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+    for (review of reviews) {
+      storage[review.rating] = storage[review.rating] + 1;
+    }
+
+    for (rating in storage) {
+      const info = {};
+      info.x = rating;
+      info.y = storage[rating];
+      data.push(info);
+    }
+
+    return data;
   }
 };
