@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewListEntry from "./ReviewListEntry.jsx";
-const { sortBy } = require("../helpers.js");
+const { sortBy, filterBy } = require("../helpers.js");
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -10,7 +10,8 @@ class ReviewList extends React.Component {
 
     this.state = {
       showAll: false,
-      sortBy: "dateDesc"
+      sortBy: "dateDesc",
+      display: []
     };
   }
 
@@ -22,8 +23,20 @@ class ReviewList extends React.Component {
     this.setState({ sortBy: e.target.value });
   }
 
+  componentDidMount() {
+    window.addEventListener("filterReviews", event => {
+      if (event.detail === "all") {
+        this.setState({ display: [] });
+      } else {
+        this.setState({ display: filterBy(this.props.reviews, event.detail) });
+      }
+    });
+  }
+
   render() {
-    const reviews = sortBy(this.props.reviews, this.state.sortBy);
+    const reviews = this.state.display.length
+      ? sortBy(this.state.display, this.state.sortBy)
+      : sortBy(this.props.reviews, this.state.sortBy);
     return (
       <div>
         <div className="sortBy" style={sortDiv}>
@@ -47,9 +60,13 @@ class ReviewList extends React.Component {
           : reviews.slice(0, 5).map((review, key) => {
               return <ReviewListEntry review={review} key={key} />;
             })}
-        <button style={button} onClick={() => this.onClick(this.state.showAll)}>
-          {this.state.showAll ? "Show fewer reviews" : "Show All Reviews"}
-        </button>
+        {reviews.length > 5 ? (
+          <button
+            style={button}
+            onClick={() => this.onClick(this.state.showAll)}>
+            {this.state.showAll ? "Show fewer reviews" : "Show All Reviews"}
+          </button>
+        ) : null}
       </div>
     );
   }

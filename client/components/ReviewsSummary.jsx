@@ -20,7 +20,16 @@ const ReviewsSummary = ({ reviews }) => (
         emptyStarColor={"#cccccc"}
         editing={false}
       />
-      <p>{reviews.length} reviews</p>
+      <p
+        onClick={() => {
+          const event = new CustomEvent("filterReviews", {
+            detail: "none"
+          });
+          window.dispatchEvent(event);
+        }}
+        style={{ cursor: "pointer" }}>
+        {reviews.length} reviews
+      </p>
     </div>
     <RatingsBreakdown reviews={reviews} />
   </div>

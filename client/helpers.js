@@ -54,7 +54,6 @@ module.exports = {
     for (review of reviews) {
       storage[review.rating] = storage[review.rating] + 1;
     }
-    console.log(storage);
 
     for (rating in storage) {
       const info = {};
@@ -64,5 +63,10 @@ module.exports = {
     }
 
     return data;
+  },
+
+  filterBy: (reviews, filter) => {
+    if (filter === "none") return [];
+    return reviews.filter(review => review.rating === filter);
   }
 };

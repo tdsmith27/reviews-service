@@ -4,9 +4,10 @@ import {
   VictoryBar,
   VictoryTheme,
   VictoryAxis,
-  VictoryLabel
+  VictoryLabel,
+  VictoryStack
 } from "victory";
-const { breakdown } = require("../helpers.js");
+const { breakdown, remainder } = require("../helpers.js");
 
 const RatingsBreakdown = ({ reviews }) => {
   const data = breakdown(reviews);
@@ -16,7 +17,27 @@ const RatingsBreakdown = ({ reviews }) => {
         <VictoryChart
           domainPadding={{ y: 17 }}
           standalone={false}
-          style={{ labels: { fontSize: "40px " } }}>
+          events={[
+            {
+              childName: "all",
+              target: "data",
+              eventHandlers: {
+                onClick: () => {
+                  return [
+                    {
+                      target: "data",
+                      mutation: props => {
+                        const event = new CustomEvent("filterReviews", {
+                          detail: props.datum._x
+                        });
+                        window.dispatchEvent(event);
+                      }
+                    }
+                  ];
+                }
+              }
+            }
+          ]}>
           <VictoryAxis tickFormat={t => null} />
           <VictoryAxis dependentAxis />
           <VictoryBar
