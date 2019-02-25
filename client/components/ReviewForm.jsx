@@ -80,6 +80,7 @@ class ReviewForm extends React.Component {
           placeholder="name"
           onChange={this.onChange}
           name="author"
+          style={nameBox}
         />
 
         <StarRating
@@ -111,10 +112,17 @@ const formStyle = {
   justifyContent: "center"
 };
 
+const nameBox = {
+  border: "1px solid #cccccc",
+  borderRadius: "1px"
+};
+
 const textBox = {
   resize: "none",
-  height: "75px",
-  width: "500px"
+  height: "100px",
+  width: "500px",
+  border: "1px solid #cccccc",
+  borderRadius: "5px"
 };
 
 export default ReviewForm;

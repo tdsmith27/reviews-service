@@ -18,6 +18,7 @@ const ReviewsSummary = ({ reviews }) => (
         value={Math.round(average(reviews))}
         starColor={"#f96302"}
         emptyStarColor={"#cccccc"}
+        editing={false}
       />
       <p>{reviews.length} reviews</p>
     </div>

@@ -14,32 +14,30 @@ const RatingsBreakdown = ({ reviews }) => {
     <div style={chartWrap}>
       <svg viewBox="0 0 500 400">
         <VictoryChart
-          domainPadding={{ y: 14 }}
+          domainPadding={{ y: 17 }}
           standalone={false}
           style={{ labels: { fontSize: "40px " } }}>
-          {/* <VictoryAxis /> */}
+          <VictoryAxis tickFormat={t => null} />
+          <VictoryAxis dependentAxis />
           <VictoryBar
             horizontal
-            animate={{
-              duration: 2000,
-              onLoad: { duration: 1000 }
-            }}
-            cornerRadius="10"
+            cornerRadius="15"
             labels={d => d.y}
-            barWidth="25"
+            barWidth="30"
             style={{
               data: {
                 fill: "#f96302",
                 stroke: "#f96302",
-                fillOpacity: "0.7",
-                strokeWidth: "2"
+                fillOpacity: "0.6",
+                strokeWidth: "2",
+                strokeOpacity: ".8",
+                cursor: "pointer"
               },
               labels: {
                 fontSize: "14",
                 fill: "#f96302"
               }
             }}
-            them={VictoryTheme.material}
             data={data}
           />
         </VictoryChart>
@@ -51,8 +49,8 @@ const RatingsBreakdown = ({ reviews }) => {
 const chartWrap = {
   height: "400px",
   width: "400px",
-  marginRight: "75px",
-  marginTop: "20px"
+  marginRight: "30px",
+  marginTop: "0"
 };
 
 export default RatingsBreakdown;
