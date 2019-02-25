@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  VictoryChart,
-  VictoryBar,
-  VictoryTheme,
-  VictoryAxis,
-  VictoryLabel
-} from "victory";
-const { breakdown, remainder } = require("../helpers.js");
+import { VictoryChart, VictoryBar, VictoryAxis } from "victory";
+const { breakdown } = require("../helpers.js");
 
 const RatingsBreakdown = ({ reviews }) => {
   const data = breakdown(reviews);
