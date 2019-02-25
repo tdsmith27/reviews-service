@@ -4,8 +4,7 @@ import {
   VictoryBar,
   VictoryTheme,
   VictoryAxis,
-  VictoryLabel,
-  VictoryStack
+  VictoryLabel
 } from "victory";
 const { breakdown, remainder } = require("../helpers.js");
 
@@ -38,13 +37,12 @@ const RatingsBreakdown = ({ reviews }) => {
               }
             }
           ]}>
-          <VictoryAxis tickFormat={t => null} />
           <VictoryAxis dependentAxis />
           <VictoryBar
             horizontal
-            cornerRadius="15"
+            cornerRadius="5"
             labels={d => d.y}
-            barWidth="30"
+            barWidth="20"
             style={{
               data: {
                 fill: "#f96302",
@@ -55,7 +53,7 @@ const RatingsBreakdown = ({ reviews }) => {
                 cursor: "pointer"
               },
               labels: {
-                fontSize: "14",
+                fontSize: "18",
                 fill: "#f96302"
               }
             }}
