@@ -13,7 +13,13 @@ This is a Reviews component within a microservice architecture for a product-det
 ## Table of Contents
 
 1. [App Usage](#app-usage)
+   <br>a. [Writing a Review](#writing-a-review)
+   <br>b. [Filter Reviews by Rating](#filter-reviews-by-rating)
+   <br>c. [Sort by Age or Rating](#sort-by-age-or-rating)
 2. [Developer Usage](#developer-usage)
+   <br>a. [Installation](#installation)
+   <br>b. [Database Setup](#database-setup)
+   <br>c. [For Use in Development](#for-use-in-development)
 3. [Tech Choices](#tech-choices)
 
 ## App Usage
@@ -72,8 +78,8 @@ This app uses an Atlas-hosted mongoDB cluster.
 
 <sub>From the root directory of your locally cloned repo:</sub>
 
-1. Build with `npm run react-dev`
-2. Start server with `npm run start`
+1. `npm run react-dev` to compile bundle with live reloading
+2. `npm run start` in a new terminal window to start server
 3. Navigate to localhost:3030 to view development version of app
 
 ## Tech Choices
