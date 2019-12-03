@@ -8,7 +8,7 @@ import WriteReview from "./WriteReview.jsx";
 const local = "http://localhost:3030";
 
 const Axios = axios.create({
-  baseURL: /*deploy ||*/ local
+  baseURL: local
 });
 
 class Reviews extends React.Component {
@@ -18,7 +18,7 @@ class Reviews extends React.Component {
     this.updateReviews = this.updateReviews.bind(this);
 
     this.state = {
-      product_id: 27,
+      product_id: 10,
       reviews: []
     };
   }
