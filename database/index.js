@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+
 mongoose.connect(
-  "mongodb+srv://tdsmith27:homerepot@cluster0-cawa1.mongodb.net/reviews?retryWrites=true"
+  `mongodb+srv://${process.env.DB_USR}:${process.env.DB_PASS}@${process.env.DB_STRING}?retryWrites=true`
 );
 
 const reviewSchema = mongoose.Schema({

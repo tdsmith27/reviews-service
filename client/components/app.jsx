@@ -4,11 +4,11 @@ import ReviewsSummary from "./ReviewsSummary.jsx";
 import ReviewList from "./ReviewList.jsx";
 import WriteReview from "./WriteReview.jsx";
 
-const deploy = `http://ec2-13-58-187-52.us-east-2.compute.amazonaws.com:3030/`;
+// const deploy = `http://ec2-13-58-187-52.us-east-2.compute.amazonaws.com:3030/`;
 const local = "http://localhost:3030";
 
 const Axios = axios.create({
-  baseURL: deploy || local
+  baseURL: /*deploy ||*/ local
 });
 
 class Reviews extends React.Component {
